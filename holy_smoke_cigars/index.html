@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ---CDN for Font Awesome--- -->
+    <script src="https://kit.fontawesome.com/23604a5ab1.js" crossorigin="anonymous"></script>
+
+    <!-- -------Google fonts------- -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- -------custom CSS-------- -->
+    <link rel="stylesheet" href="style.css">
+    <title>Holy Smoke Cigars</title>
+</head>
+
+<body>
+    <hr>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <a href=""><img src="images/logo.png" alt="LOGO"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li class="dropdown"><a href="#">Cigars<i class="arrow down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Marlboro</a></li>
+                            <li><a href="#">Davidoff</a></li>
+                            <li><a href="#">Camel</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#">Samplers<i class="arrow down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Parliament</a></li>
+                            <li><a href="#">Dunhill</a></li>
+                            <li><a href="#">Lucky Strike</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#">Humidors<i class="arrow down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Pall Mall</a></li>
+                            <li><a href="#">Benson & Hedges</a></li>
+                            <li><a href="#">Gold Flake</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown"><a href="#">Accessories<i class="arrow down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Insignia</a></li>
+                            <li><a href="#">Dunhill</a></li>
+                            <li><a href="#">Lucky Strike</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Glossary</a></li>
+                </ul>
+            </nav>
+            <div class="log-search">
+                <div class="log">
+                    <a href="#">LOGIN</a>
+                    <a href="#">REGISTER</a>
+                    <a href="#">CONTACT US</a>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+        </div>
+        <hr>
+    </header>
+
+<!-- --------java Script for toggle sub menu-------- -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // Show hide popover
+        $(".dropdown").click(function(){
+            $(this).find(".dropdown-menu").slideToggle("fast");
+        });
+    });
+    $(document).on("click", function(event){
+        var $trigger = $(".dropdown");
+        if($trigger !== event.target && !$trigger.has(event.target).length){
+            $(".dropdown-menu").slideUp("fast");
+        }            
+    });
+</script>
+
+</body>
+
+</html>
