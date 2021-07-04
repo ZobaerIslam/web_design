@@ -68,11 +68,16 @@
                 </div>
                 <div class="search">
                     <input type="text" placeholder="Search">
+                    <a href="#"><i class="fas fa-search fa-1x"></i></a>
+                    <a href="#"><i class="fas fa-shopping-cart fa-flip-horizontal"></i></a>                    
                 </div>
             </div>
         </div>
         <hr>
     </header>
+
+
+
 
 <!-- --------java Script for toggle sub menu-------- -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -87,9 +92,11 @@
         var $trigger = $(".dropdown");
         if($trigger !== event.target && !$trigger.has(event.target).length){
             $(".dropdown-menu").slideUp("fast");
-        }            
+        }
     });
 </script>
+
+
 
 </body>
 
