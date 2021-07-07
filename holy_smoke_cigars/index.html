@@ -21,6 +21,7 @@
 </head>
 
 <body>
+    <!-- ---------header category-------- -->
     <hr>
     <header>
         <div class="wrapper">
@@ -29,28 +30,28 @@
             </div>
             <nav>
                 <ul>
-                    <li class="dropdown"><a href="#">Cigars<i class="arrow down"></i></a>
+                    <li class="dropdown"><a href="#">Cigars<i class="arrow down up"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Marlboro</a></li>
                             <li><a href="#">Davidoff</a></li>
                             <li><a href="#">Camel</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#">Samplers<i class="arrow down"></i></a>
+                    <li class="dropdown"><a href="#">Samplers<i class="arrow down up"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Parliament</a></li>
                             <li><a href="#">Dunhill</a></li>
                             <li><a href="#">Lucky Strike</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#">Humidors<i class="arrow down"></i></a>
+                    <li class="dropdown"><a href="#">Humidors<i class="arrow down up"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Pall Mall</a></li>
                             <li><a href="#">Benson & Hedges</a></li>
                             <li><a href="#">Gold Flake</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#">Accessories<i class="arrow down"></i></a>
+                    <li class="dropdown"><a href="#">Accessories<i class="arrow down up"></i></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Insignia</a></li>
                             <li><a href="#">Dunhill</a></li>
@@ -60,41 +61,63 @@
                     <li><a href="#">Glossary</a></li>
                 </ul>
             </nav>
-            <div class="log-search">
-                <div class="log">
-                    <a href="#">LOGIN</a>
-                    <a href="#">REGISTER</a>
-                    <a href="#">CONTACT US</a>
+            <div class="log-search-wrapper">
+                <div class="log-search">
+                    <div class="log">
+                        <a href="#">LOGIN</a>
+                        <a href="#">REGISTER</a>
+                        <a href="#">CONTACT US</a>
+                    </div>
+                    <div class="search">
+                        <div class="search-with-icon">
+                            <input type="text" placeholder="Search">
+                            <a href="#"><i class="fas fa-search"></i></a>
+                        </div>
+                        <a href="#"><i class="fas fa-shopping-cart fa-flip-horizontal"></i></a>
+                    </div>
                 </div>
-                <div class="search">
-                    <input type="text" placeholder="Search">
-                    <a href="#"><i class="fas fa-search fa-1x"></i></a>
-                    <a href="#"><i class="fas fa-shopping-cart fa-flip-horizontal"></i></a>                    
+                <!-- ------humburger------ -->
+                <div class="hamburger">
+                    <span class="bar1"></span>
+                    <span class="bar2"></span>
+                    <span class="bar3"></span>
                 </div>
             </div>
         </div>
         <hr>
     </header>
 
+    <!-- ----------slider category--------- -->
 
 
 
-<!-- --------java Script for toggle sub menu-------- -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script>
-    $(document).ready(function(){
-        // Show hide popover
-        $(".dropdown").click(function(){
-            $(this).find(".dropdown-menu").slideToggle("fast");
+    <!-- --------java Script for toggle sub menu-------- -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        // hamburger
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector("nav");
+
+        hamburger.addEventListener("click", mobileMenu);
+
+        function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        };
+
+        // submenu toggle
+        $('li.dropdown').on('click', function (e) {
+            $(this).children('ul.dropdown-menu').toggle("fast");
+            $(this).children('a').children('i.arrow').toggleClass('down up');
+            // $(this).children('a').children('i.arrow').addClass('up');
+
+            $(this).siblings('li.dropdown').find('ul.dropdown-menu').hide("fast");
+            $(this).siblings('li.dropdown').find('i.arrow').removeClass('up');
+            $(this).siblings('li.dropdown').find('i.arrow').addClass('down');
+            e.stopPropagation();
         });
-    });
-    $(document).on("click", function(event){
-        var $trigger = $(".dropdown");
-        if($trigger !== event.target && !$trigger.has(event.target).length){
-            $(".dropdown-menu").slideUp("fast");
-        }
-    });
-</script>
+    </script>
 
 
 
