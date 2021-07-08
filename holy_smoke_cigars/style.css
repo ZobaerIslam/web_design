@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 
@@ -8,10 +9,13 @@ body {
     background-color: #f9f8f4;
 }
 
+h1 {
+    font-family: 'Saira Extra Condensed', sans-serif;
+}
+
 a, p {
     font-size: 1rem;
     color: #292723;
-    font-family: 'Roboto Condensed', sans-serif;
     font-weight: 400;
 }
 
@@ -30,7 +34,6 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: 1px solid red; */
 }
 
 
@@ -38,8 +41,6 @@ hr {
 .wrapper .logo {
     width: 175px;
     height: 95px;
-    /* margin: auto 0; */
-    /* border: 1px solid blue; */
 }
 
 .logo img {
@@ -53,7 +54,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: 1px solid black; */
 }
 
 
@@ -91,13 +91,12 @@ nav ul li a {
 .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    top: -3px;    
+    top: -3px;
 }
 
 nav ul li a i{
     position: relative;
     right: -8px;
-    /* top: -5px; */
 }
 
 nav ul li a:hover {
@@ -106,9 +105,9 @@ nav ul li a:hover {
 
 nav ul li a:hover i.arrow {
     border: solid #76562e;
-    border-width: 0 1.5px 1.5px 0;
-    display: inline-block;
-    padding: 3px;
+    border-width: 0 1.3px 1.3px 0;
+    /* display: inline-block;
+    padding: 3px; */
 }
 
 
@@ -126,6 +125,7 @@ nav ul li ul.dropdown-menu{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px; 
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999;
 }
 nav ul li ul.dropdown-menu li {
     min-width: 100px;
@@ -139,7 +139,7 @@ nav ul li ul.dropdown-menu li a {
 
 /* ------- log search------ */
 .log-search-wrapper {
-    width: 320px;
+    width: 260px;
     height: 95px;
     display: flex;
     justify-content: space-between;
@@ -149,14 +149,12 @@ nav ul li ul.dropdown-menu li a {
 .log-search {
     width: 260px;
     height: 100%;
-    /* border: 1px solid black; */
 }
 
 .log-search .log {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    /* border: 1px solid green; */
 }
 
 .log-search .log a {
@@ -171,7 +169,6 @@ nav ul li ul.dropdown-menu li a {
 .log-search .search {
     width: 100%;
     position: relative;
-    /* border: 1px solid red; */
     margin-top: 12px;
 }
 
@@ -192,6 +189,7 @@ nav ul li ul.dropdown-menu li a {
 .log-search .search .search-with-icon input:focus {
     outline: none;
 }
+
 .log-search .search .search-with-icon a i.fa-search {
     font-size: 1.1rem;
     color: #403e3b;
@@ -230,14 +228,15 @@ header hr {
     background-color: #ccb686;
 }
 
+/* --------responsive-------- */
 @media only screen and (max-width: 1200px) {
     .wrapper {
         width: 95%;
     }
 
-    /* .log-search {
-        float: right;
-    } */
+    .log-search-wrapper {
+        width: 320px;
+    }
 
     .hamburger {
         display: block;
@@ -266,8 +265,8 @@ header hr {
         background-color: #ccb686;
         border-radius: 10px;
         text-align: left;
-        /* transition: 0.8s; */
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 999;
     }
 
     nav.active {
@@ -283,17 +282,11 @@ header hr {
         top: 10px;
         background-color: #ccb686;
         border: 1px solid #ccb686;
-        box-shadow: 0 4px 2px -2px gray;
+        padding: 8px 20px;
+        box-shadow: 0 4px 2px -2px lightgray;
     }
-
-    /* nav ul li {
-        font-size: 1.6rem;
-        font-weight: 400;
-        color: #475569;
-    } */
-
-    nav ul li:hover {
-        color: #482ff7;
+    nav ul li ul.dropdown-menu li a {
+        font-size: 0.95rem;
     }
 }
 
@@ -318,5 +311,149 @@ header hr {
 
     .log-search-wrapper {
         width: 225px;
+    }
+}
+
+
+/* -------slider category------- */
+.slideShow-container {
+    width: 1170px;
+    height: 275px;  
+    margin: 30px auto;
+    position: relative;
+}
+
+.slides {
+    display: none;
+}
+
+.slides img {
+    width: 100%;
+    height: 275px;
+    /* vertical-align: middle; */
+}
+
+.prev, .next {
+    width: auto;
+    display: inline-block;
+    padding: 10px;
+    margin-left: 40px;
+    border: solid #be8510;
+    border-width: 0 2px 2px 0;
+    position: absolute;
+    top: 50%;
+    user-select: none;
+    transition: 0.6s ease;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.next {
+    right: 0;
+    margin-right: 40px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+  
+
+.prev:hover, .next:hover {
+    border: solid #9d7111;
+    border-width: 0 2px 2px 0;
+    cursor: pointer;
+}
+
+.bannerText-container {
+    position: absolute;
+    width: 470px;
+    height: 225px;
+    right: 10%;
+    top: 9%;
+    background-color: rgba(236, 236, 236, 0.1);
+    text-align: center;
+}
+
+.bannerText-container h1 {
+    font-size: 42px;
+    font-weight: 500;
+    color: #f8f3ea;
+    margin-top: 10px;
+}
+
+.bannerText-container p {
+    font-size: 16px;
+    color: #b6a89c;
+    line-height: 1.5rem;
+    margin: 0px 20px;
+}
+
+.bannerText-container button{
+    color: white;
+    background-color: #bb8511;
+    border: 1px solid #cda575;
+    padding: 15px 40px;
+    font-size: 1rem;
+    margin-top: 25px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.bannerText-container button:hover {
+    background-color: #9d7116;
+    cursor: pointer;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    left {opacity: 1}
+}
+
+@-webkit-keyframes fade {
+    form {opacity: .4}
+    to {opacity: 1}
+}
+
+@media(max-width: 1200px) {
+    .slideShow-container {
+        width: 95%;
+    }
+}
+
+@media(max-width: 620px) {
+    .prev, .next {
+        padding: 7px;
+        margin-left: 25px;
+    }
+
+    .next {
+        margin-right: 25px;
+    }
+
+    .bannerText-container {
+        width: 80%;
+    }
+
+    .bannerText-container h1 {
+        font-size: 30px;
+    }
+
+    .bannerText-container button {
+        padding: 10px 25px;
+    }
+}
+
+@media(max-width: 400px) {
+    .bannerText-container p {
+        line-height: 1.2rem;
+    }
+
+    .bannerText-container button {
+        margin-top: 12px;
     }
 }
