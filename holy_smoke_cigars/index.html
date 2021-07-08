@@ -15,6 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
         rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
     <!-- -------custom CSS-------- -->
     <link rel="stylesheet" href="style.css">
     <title>Holy Smoke Cigars</title>
@@ -88,10 +93,40 @@
     </header>
 
     <!-- ----------slider category--------- -->
+    <div class="slideShow-container">
+        <div class="slides fade" style="display: block;">
+            <img src="images/bannerimage.jpg" alt="Banner Image">
+            <div class="bannerText-container">
+                <h1>PROMO BANNER TEXT</h1>
+                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ipsum dicta,
+                    qui officia accusamus odit dolorem illo fugiat.</P>
+                <button type="menu">SHOP NOW</button>
+            </div>
+        </div>
+        <div class="slides fade">
+            <img src="images/bannerimage2.jpg" alt="Banner Image">
+            <div class="bannerText-container">
+                <h1>PROMO BANNER TEXT 2</h1>
+                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ipsum dicta,
+                    qui officia accusamus odit dolorem illo fugiat.</P>
+                <button type="menu">SHOP NOW</button>
+            </div>
+        </div>
+        <div class="slides fade">
+            <img src="images/bannerimage3.jpg" alt="Banner Image">
+            <div class="bannerText-container">
+                <h1>PROMO BANNER TEXT 3</h1>
+                <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ipsum dicta,
+                    qui officia accusamus odit dolorem illo fugiat.</P>
+                <button type="menu">SHOP NOW</button>
+            </div>
+        </div>
+        <a class="prev" onclick="plusSlides(-1)"></a>
+        <a class="next" onclick="plusSlides(1)"></a>
+    </div>
 
 
-
-    <!-- --------java Script for toggle sub menu-------- -->
+    <!-- --------CDN jQuery for toggle-------- -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
@@ -109,17 +144,38 @@
         // submenu toggle
         $('li.dropdown').on('click', function (e) {
             $(this).children('ul.dropdown-menu').toggle("fast");
-            $(this).children('a').children('i.arrow').toggleClass('down up');
-            // $(this).children('a').children('i.arrow').addClass('up');
+            $(this).children('a').children('i.arrow').toggleClass("up down");
+            $(this).children('a').children('i.arrow').addClass('up');
 
             $(this).siblings('li.dropdown').find('ul.dropdown-menu').hide("fast");
             $(this).siblings('li.dropdown').find('i.arrow').removeClass('up');
             $(this).siblings('li.dropdown').find('i.arrow').addClass('down');
             e.stopPropagation();
         });
+
+        // slider
+        var slideIndex = 1;
+        showSlides(slideIndex += n);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i=0; i<slides.length; i++){
+                slides[i].style.display = "none";
+            }
+            slides[slideIndex-1].style.display = "block";
+        }
     </script>
-
-
 
 </body>
 
